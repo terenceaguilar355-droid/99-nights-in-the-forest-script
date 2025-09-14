@@ -1,0 +1,14 @@
+while true do
+    -- Code to collect diamonds
+    local diamonds = game.Workspace:GetDescendants()
+    for _, v in pairs(diamonds) do
+        if v.Name == "Diamond" then
+            -- Move character to diamond
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+            wait(0.1)
+            -- Collect diamond
+            game.ReplicatedStorage.CollectDiamond:FireServer(v)
+        end
+    end
+    wait(1)
+end
